@@ -16,13 +16,27 @@ namespace IdentityExample.Controllers
         {
             return View();
         }
+
+        [Authorize(Policy = "Claim.DoB")]
+        public IActionResult SecurePolicy()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult SecureRoles()
+        {
+            return View();
+        }
         public IActionResult Authenticate()
         {
             List<Claim> grandmaClaims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name,"Bob"),
                 new Claim(ClaimTypes.Email,"Bob@fmail.com"),
-                new Claim("Grandma.Says","Very nice boi.")
+                new Claim(ClaimTypes.DateOfBirth,"22.04.2001"),
+                new Claim(ClaimTypes.Role,"Admin"),
+                new Claim("Grandma.Says","Very nice boi."),
             };
 
             var licenceClaims = new List<Claim>()
