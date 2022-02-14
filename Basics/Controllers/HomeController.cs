@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace Basics.Controllers
+namespace IdentityExample.Controllers
 {
     public class HomeController : Controller
     {
@@ -35,6 +35,7 @@ namespace Basics.Controllers
             var licenceIdentity = new ClaimsIdentity(licenceClaims, "Goverment Identity");
 
             var userPrincipal = new ClaimsPrincipal(new[] { Grandmasidentity, licenceIdentity });
+            //-----------------------------------------------------------------------------
 
             HttpContext.SignInAsync(userPrincipal).Wait();
 
