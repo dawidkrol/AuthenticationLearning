@@ -28,6 +28,14 @@ builder.Services.ConfigureApplicationCookie(config =>
     config.LoginPath = "/Home/Authenticate";
 });
 
+builder.Services.AddAuthorization(config =>
+{
+    config.AddPolicy("Adm", policy =>
+    {
+        policy.RequireRole("Admin");
+    });
+});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

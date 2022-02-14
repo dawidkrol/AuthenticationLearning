@@ -11,12 +11,15 @@ namespace IdentityExample.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public HomeController(UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            SignInManager<IdentityUser> signInManager,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _roleManager = roleManager;
         }
         public IActionResult Index()
         {
@@ -26,6 +29,12 @@ namespace IdentityExample.Controllers
         public IActionResult Secure()
         {
             return View();
+        }
+
+        [Authorize(Policy = "Adm")]
+        public IActionResult SecurePolicy()
+        {
+            return View("Secure");
         }
         public IActionResult Login()
         {
@@ -58,9 +67,15 @@ namespace IdentityExample.Controllers
             };
             var result = await _userManager.CreateAsync(user, password);
             //---------------------------------------------------------------
-
+            if (await _roleManager.FindByNameAsync("Admin") == null)
+            {
+                //Add role
+                await _roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
             if (result.Succeeded)
             {
+                //Add to role
+                await _userManager.AddToRoleAsync(await _userManager.FindByNameAsync(username), "Admin");
                 //sign user here
                 await _signInManager.PasswordSignInAsync(user, password, false, false);
             }
