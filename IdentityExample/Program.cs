@@ -22,7 +22,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(config =>
     config.Password.RequiredLength = 4;
     config.Password.RequireDigit = false;
     config.Password.RequireNonAlphanumeric = false;
-    config.SignIn.RequireConfirmedEmail = false;
+    config.SignIn.RequireConfirmedEmail = true;
 })
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();

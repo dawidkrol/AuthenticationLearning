@@ -28,6 +28,7 @@ namespace IdentityExample.Controllers
         {
             return View();
         }
+        //[AllowAnonymous]
         public IActionResult Authenticate()
         {
             List<Claim> grandmaClaims = new List<Claim>()

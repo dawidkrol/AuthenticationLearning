@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basics", "Basics\Basics.csproj", "{BD16A37F-9D7E-4F33-8F9F-16314763B449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basics", "Basics\Basics.csproj", "{BD16A37F-9D7E-4F33-8F9F-16314763B449}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityExample", "IdentityExample\IdentityExample.csproj", "{69DDE38B-7312-48F9-BA25-E5EAB96C9BE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityExample", "IdentityExample\IdentityExample.csproj", "{69DDE38B-7312-48F9-BA25-E5EAB96C9BE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{DDD7A674-7C4D-42F6-B041-CF8E12DBD271}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oauth", "Oauth", "{A6C7D804-5E3F-43A2-BA97-AF26F27B46A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{5A0147BD-783D-48AB-92B5-4CC2DCA1987F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,18 @@ Global
 		{69DDE38B-7312-48F9-BA25-E5EAB96C9BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69DDE38B-7312-48F9-BA25-E5EAB96C9BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69DDE38B-7312-48F9-BA25-E5EAB96C9BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0147BD-783D-48AB-92B5-4CC2DCA1987F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0147BD-783D-48AB-92B5-4CC2DCA1987F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0147BD-783D-48AB-92B5-4CC2DCA1987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0147BD-783D-48AB-92B5-4CC2DCA1987F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD16A37F-9D7E-4F33-8F9F-16314763B449} = {DDD7A674-7C4D-42F6-B041-CF8E12DBD271}
+		{69DDE38B-7312-48F9-BA25-E5EAB96C9BE5} = {DDD7A674-7C4D-42F6-B041-CF8E12DBD271}
+		{5A0147BD-783D-48AB-92B5-4CC2DCA1987F} = {A6C7D804-5E3F-43A2-BA97-AF26F27B46A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FDEA97CE-1CC3-44B7-A486-909FB0202EBB}
