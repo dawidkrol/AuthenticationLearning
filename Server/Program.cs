@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.IdentityModel.Tokens;
 using Server;
-using System.Linq;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,10 +36,14 @@ builder.Services.AddAuthentication("OAuth")
         };
     });
 
+//builder.Services.Configure<KestrelServerOptions>(config =>
+//{
+//    config.AllowSynchronousIO = true;
+//});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
-
 app.UseRouting();
 
 app.UseAuthentication();
